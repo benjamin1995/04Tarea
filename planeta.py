@@ -93,23 +93,23 @@ class Planeta(object):
 
 
         '''Se define una variable para cada valor actual del vector de 4 componentes'''
-        x , y, vx, vy = self.y_actual
+        xn , yn, vxn, vyn = self.y_actual
 
 
         '''calculo de vector posiciones en x y en y'''
-        yn = sp.array([ x , y ]) + sp.array([ vx , vy ]) * dt + 1/2. * self.ecuacion_de_movimiento()[2:] * dt**2
+        yn1 = sp.array([ xn , yn ]) + sp.array([ vxn , vyn ]) * dt + 1/2. * self.ecuacion_de_movimiento()[2:] * dt**2
 
 
         '''Calculo de vector aux de 4 componentes a usar en ecuacion de movimiento para la aceleracion en x y en y '''
-        Yn = sp.array([yn[0] , yn[1], 0, 0])
+        Yn1 = sp.array([yn1[0] , yn1[1], 0, 0])
 
 
         ''' Calculo de vector velocidades en x y en y'''
-        vn = sp.array([ vx , vy ]) + 1/2. * (self.ecuacion_de_movimiento()[2:] + self.ecuacion_de_movimiento(Yn)[2:]) * dt
+        vn1 = sp.array([ vxn , vyn ]) + 1/2. * (self.ecuacion_de_movimiento()[2:] + self.ecuacion_de_movimiento(Yn1)[2:]) * dt
 
 
         '''Nuevo arreglo actual, avanza en el tiempo '''
-        actual = sp.array([yn[0], yn[1], vn[0], vn[1]])
+        actual = sp.array([yn1[0], yn1[1], vn1[0], vn1[1]])
         self.y_actual = actual
         self.t_actual += dt
         pass

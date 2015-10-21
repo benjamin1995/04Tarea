@@ -44,7 +44,7 @@ for i in range (1,pasos):
     energia[i] = p.energia_total()
     r[i] = sp.sqrt(x[i]**2+y[i]**2)
 
-'''Tratamos de buscar el perihelio'''
+    '''Tratamos de buscar el perihelio'''
     b = 0.0009
     valor =10
     if valor-b<r[i-1] and r[i-1]<valor+b:
@@ -57,7 +57,7 @@ for i in range (1,pasos):
 
 vel_angular = sp.zeros(len(perihelio[0])-1)
 
-phi_anterior =  sp.arctan(perihelio[2][0]/(perihelio[1][0]))   #Variable para calcular el angulo phi por trigonometria
+phi_anterior =  sp.arctan(perihelio[2][0]/(perihelio[1][0]))   #Variable para calcular el angulo phi por trigonometria en radianes.
 t_anterior = perihelio[0][0]
 
 
@@ -77,8 +77,8 @@ for i in range(1,len(perihelio[0])):
 
 vel_angular = np.round(vel_angular,7)                                      #Redondea al septimo decimal el arreglo de velocidades
 vel_precesion = scipy.stats.mode(vel_angular)[0][0]                        #Encuentra la moda en un arreglo
-print("Arreglo de velocidad angular de precesion = "+(str)(vel_angular))
-print("velocidad angular de precesion = "+(str)(vel_precesion))
+print"Arreglo de velocidad angular de precesion = "+(str)(vel_angular)
+print "velocidad angular de precesion = "+(str)(vel_precesion)+"rad/s"
 
 
 
