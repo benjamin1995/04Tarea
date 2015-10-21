@@ -45,9 +45,9 @@ for i in range (1,pasos):
     r[i] = sp.sqrt(x[i]**2+y[i]**2)
 
 '''Tratamos de buscar el perihelio'''
-    a = 0.0009
+    b = 0.0009
     valor =10
-    if valor-a<r[i-1] and r[i-1]<valor+a:
+    if valor-b<r[i-1] and r[i-1]<valor+b:
         perihelio[0].append(p.t_actual)
         perihelio[1].append(x[i-1])
         perihelio[2].append(y[i-1])
